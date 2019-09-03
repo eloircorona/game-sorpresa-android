@@ -1,0 +1,32 @@
+name: Sorpresa
+description: Una pequeña sorpresa para ti <3.
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.1.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flame: ^0.15.1
+  cupertino_icons: ^0.1.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+
+flutter:
+
+  uses-material-design: true
+  assets:
+   - assets/images/left.png
+   - assets/images/right.png
+   - assets/images/top.png
+   - assets/images/bottom.png
+   - assets/images/center.png
+   - assets/images/a.png
+   - assets/images/b.png
+   - assets/images/x.png
+   - assets/images/y.png
