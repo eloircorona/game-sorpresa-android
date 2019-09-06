@@ -11,6 +11,10 @@ import 'package:Sorpresa/components/button-top.dart';
 import 'package:Sorpresa/components/button-x.dart';
 import 'package:Sorpresa/components/button-y.dart';
 import 'package:Sorpresa/components/controller-button.dart';
+import 'package:Sorpresa/components/eloir.dart';
+import 'package:Sorpresa/components/first-screen.dart';
+import 'package:Sorpresa/components/heart.dart';
+import 'package:Sorpresa/components/message.dart';
 import 'package:Sorpresa/components/omar.dart';
 
 import 'package:flame/flame.dart';
@@ -22,6 +26,9 @@ class BoxGame extends Game {
   Size screenSize;
   double tileSize;
 
+  FirstScreen firstScreen;
+  bool firstScreenActive;
+
   //Back
   Back backgound;
 
@@ -32,12 +39,39 @@ class BoxGame extends Game {
   Omar omar;
   double omarX;
   double omarY;
-  int spriteIndex;
-  String orientation;
-  bool isWalking;
+  int omarSpriteIndex;
+  String omarOrientation;
+  bool omarIsWalking;
+
+  //Eloir
+  Eloir eloir;
+  double eloirX;
+  double eloirY;
+  int eloirSpriteIndex;
+  bool eloirIsWalking;
+
+  //Message
+  Message message;
+  bool showMessage;
+  bool selectOption;
+  bool optionYes;
+  bool optionNo;
+  int countMessage;
+  int selectYesNo;
+
+  //Heart
+  Heart heart;
+  bool showHeart;
+
+  int timeCount;
 
   BoxGame() {
     initialize();
+  }
+
+  void loadFirstScreen() { 
+    firstScreenActive = true;
+    firstScreen = FirstScreen(this, 0, 0);
   }
 
   void loadButtons() {
@@ -56,29 +90,91 @@ class BoxGame extends Game {
   void loadOmar() {
     omarX = 50;
     omarY = 50;
-    spriteIndex = 0;
-    orientation = "right";
-    isWalking = false;
-    omar = Omar(this, omarX, omarY, spriteIndex, orientation, isWalking);
+    omarSpriteIndex = 0;
+    omarOrientation = "right";
+    omarIsWalking = false;
+    omar = Omar(this, omarX, omarY, omarSpriteIndex, omarOrientation, omarIsWalking);
+  }
+
+  void loadEloir() {
+    eloirX = screenSize.width + tileSize * 2;
+    eloirY = screenSize.height / 2 - tileSize;
+    eloirSpriteIndex = 0;
+    eloirIsWalking = false;
+    eloir = Eloir(this, eloirX, eloirY, eloirSpriteIndex, eloirIsWalking);
+  }
+
+  void loadMessage() {
+    showMessage = false;
+    countMessage = 0;
+    selectOption = false;
+    selectYesNo = 1;
+    optionYes = false;
+    optionNo = false;
+
+    message = Message(this, 10, 250, countMessage);
+  }
+
+  void loadHeart() {
+    showHeart = false;
+
+    heart = Heart(this, (screenSize.width / 2) + (tileSize / 4), (screenSize.height / 2) - (tileSize * 1.3)); 
   }
 
   void initialize() async {
     buttons = List<ControllerButton>();
     resize(await Flame.util.initialDimensions());
+    timeCount = 0;
+    loadFirstScreen();
 
     backgound = Back(this, 0, 0);
     loadButtons();
     loadOmar();
+    loadEloir();
+    loadMessage();
+    loadHeart();
   }
 
   void render(Canvas canvas) {
     backgound.render(canvas);
     omar.render(canvas);
+    eloir.render(canvas);
+    if(showMessage) message.render(canvas);
+    if(showHeart) heart.render(canvas);
     buttons.forEach((ControllerButton button) => button.render(canvas));
+    if(firstScreenActive) firstScreen.render(canvas);
   }
 
   void update(double t) {
-    omar = Omar(this, omarX, omarY, spriteIndex, orientation, isWalking);
+    timeCount++;
+    omar = Omar(this, omarX, omarY, omarSpriteIndex, omarOrientation, omarIsWalking);
+    
+    if(timeCount > 100) firstScreenActive = false; 
+    if(timeCount > 200) eloirIsWalking = true;
+    if(eloirIsWalking && !optionNo)
+    {
+      if(eloirX > screenSize.width / 2)
+      {
+        eloirX -= 3;
+        if(eloirSpriteIndex == 7) eloirSpriteIndex = 0;
+        eloirSpriteIndex++;
+      } else {
+        eloirSpriteIndex = 2;
+      }
+      
+    }
+    if(eloirIsWalking && optionNo)
+    {
+      if(eloirX > -100)
+      {
+        eloirX -= 3;
+        if(eloirSpriteIndex == 7) eloirSpriteIndex = 0;
+        eloirSpriteIndex++;
+      }
+    }
+    eloir = Eloir(this, eloirX, eloirY, eloirSpriteIndex, eloirIsWalking);
+    if(showMessage) message = Message(this, 10, 250, countMessage);
+    if(showHeart && optionYes) heart = Heart(this, (screenSize.width / 2) + (tileSize / 4), (screenSize.height / 2) - (tileSize * 1.3));
     buttons.forEach((ControllerButton button) => button.update(t));
   }
 

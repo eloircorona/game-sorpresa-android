@@ -16,7 +16,7 @@ class Back {
   }
 
   void render(Canvas c) {
-    backSprite.renderRect(c, backRect);
+    // backSprite.renderRect(c, backRect);
   }
 
   void update(double t) {

@@ -13,8 +13,13 @@ dependencies:
   cupertino_icons: ^0.1.2
 
 dev_dependencies:
+  flutter_launcher_icons: ^0.7.0
   flutter_test:
     sdk: flutter
+
+flutter_icons:
+  android: true
+  image_path: "assets/images/launcher/icon.png"
 
 
 flutter:
@@ -31,6 +36,15 @@ flutter:
    - assets/images/b.png
    - assets/images/x.png
    - assets/images/y.png
+   - assets/images/heart.png
+   - assets/images/launcher/game_icon.png
+   - assets/images/messages/message_00.png
+   - assets/images/messages/message_01.png
+   - assets/images/messages/message_02.png
+   - assets/images/messages/message_03.png
+   - assets/images/messages/message_04.png
+   - assets/images/messages/message_05.png
+   - assets/images/messages/message_06.png
    - assets/images/omar_walking_left/tile000.png
    - assets/images/omar_walking_left/tile001.png
    - assets/images/omar_walking_left/tile002.png
@@ -63,3 +77,11 @@ flutter:
    - assets/images/omar_walking_bottom/tile005.png
    - assets/images/omar_walking_bottom/tile006.png
    - assets/images/omar_walking_bottom/tile007.png
+   - assets/images/eloir_walking_left/tile000.png
+   - assets/images/eloir_walking_left/tile001.png
+   - assets/images/eloir_walking_left/tile002.png
+   - assets/images/eloir_walking_left/tile003.png
+   - assets/images/eloir_walking_left/tile004.png
+   - assets/images/eloir_walking_left/tile005.png
+   - assets/images/eloir_walking_left/tile006.png
+   - assets/images/eloir_walking_left/tile007.png
