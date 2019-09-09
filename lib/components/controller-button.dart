@@ -41,62 +41,105 @@ class ControllerButton {
         
         switch (buttonName) {
           case "right":
-            if(!game.selectOption && game.omarX + game.tileSize < game.screenSize.width) 
+            if(!game.selectOption) 
             {
               if(
-                game.omarX >= game.eloirX ||
-                game.omarX + game.tileSize * 0.6 <= game.eloirX ||
-                game.omarY + game.tileSize * 0.6 <= game.eloirY ||
-                game.omarY >= game.eloirY + game.tileSize * 0.6
+                   // Sector 1
+                game.omarX > game.tileSize * 0.8 && game.omarX + game.tileSize < game.tileSize * 6.3 && game.omarY > -8 && game.omarY < game.screenSize.height - game.tileSize * 4
+                || // Sector 2
+                game.omarX + game.tileSize > game.tileSize * 6.3 && game.omarX < game.tileSize * 7.1 && game.omarY > -8 && game.omarY < game.screenSize.height
+                || // Sector 3
+                game.omarX > game.tileSize * 6.8 && game.omarX < game.tileSize * 10.8 && game.omarY > -8 && game.omarY + game.tileSize < game.tileSize * 0.9
+                || // Sector 4
+                game.omarX > game.tileSize * 10.8 && game.omarX < game.tileSize * 12 && game.omarY > -8 && game.omarY < game.screenSize.height - game.tileSize * 2.6
+                || // Sector 5
+                game.omarX > game.tileSize * 9.8 && game.omarX < game.tileSize * 12.3 && game.omarY > game.tileSize * 3.1 && game.omarY < game.screenSize.height - game.tileSize * 2.6
+                // Sector 6
               ) {
-                game.omarX += 3;
-                if(game.omarOrientation == "right") {
-                  if(game.omarSpriteIndex == 7) game.omarSpriteIndex = 0;
-                  game.omarSpriteIndex += 1;
-                } else {
-                  game.omarOrientation = "right";
-                  game.omarSpriteIndex = 0;
+                if(
+                  game.omarX >= game.eloirX ||
+                  game.omarX + game.tileSize * 0.6 <= game.eloirX ||
+                  game.omarY + game.tileSize * 0.6 <= game.eloirY ||
+                  game.omarY >= game.eloirY + game.tileSize * 0.6
+                ) {
+                  game.omarX += 3;
+                  if(game.omarOrientation == "right") {
+                    if(game.omarSpriteIndex == 7) game.omarSpriteIndex = 0;
+                    game.omarSpriteIndex += 1;
+                  } else {
+                    game.omarOrientation = "right";
+                    game.omarSpriteIndex = 0;
+                  }
                 }
               }
+              
             }
             if(game.omarX + game.tileSize > game.screenSize.width / 2) game.eloirIsWalking = true; 
             break;
           case "left":
-            if(!game.selectOption && game.omarX > 0 ) 
+            if(!game.selectOption) 
             {
               if(
-                game.omarX <= game.eloirX ||
-                game.omarX >= game.eloirX + game.tileSize * 0.6 ||
-                game.omarY >= game.eloirY + game.tileSize * 0.6 ||
-                game.omarY + game.tileSize * 0.6 <= game.eloirY
+                // Sector 1
+                game.omarX > game.tileSize && game.omarX + game.tileSize < game.tileSize * 6.5 && game.omarY > -8 && game.omarY < game.screenSize.height - game.tileSize * 4
+                || // Sector 2
+                game.omarX + game.tileSize > game.tileSize * 6.8 && game.omarX < game.tileSize * 7.3 && game.omarY > -8 && game.omarY < game.screenSize.height
+                || // Sector 3
+                game.omarX > game.tileSize * 7.1 && game.omarX < game.tileSize * 11.5 && game.omarY > -8 && game.omarY + game.tileSize < game.tileSize * 0.9
+                || // Sector 4
+                game.omarX > game.tileSize * 11.5 && game.omarX < game.tileSize * 12.2 && game.omarY > -8 && game.omarY < game.screenSize.height - game.tileSize * 2.6
+                || // Sector 5
+                game.omarX > game.tileSize * 10 && game.omarX < game.tileSize * 12.3 && game.omarY > game.tileSize * 3.1 && game.omarY < game.screenSize.height - game.tileSize * 2.6
+                // Sector 6
               ) {
-                game.omarX -= 3;
-                if(game.omarOrientation == "left") {
-                  if(game.omarSpriteIndex == 7) game.omarSpriteIndex = 0;
-                  game.omarSpriteIndex += 1;
-                } else {
-                  game.omarOrientation = "left";
-                  game.omarSpriteIndex = 0;
+                if(
+                  game.omarX <= game.eloirX ||
+                  game.omarX >= game.eloirX + game.tileSize * 0.6 ||
+                  game.omarY >= game.eloirY + game.tileSize * 0.6 ||
+                  game.omarY + game.tileSize * 0.6 <= game.eloirY
+                ) {
+                  game.omarX -= 3;
+                  if(game.omarOrientation == "left") {
+                    if(game.omarSpriteIndex == 7) game.omarSpriteIndex = 0;
+                    game.omarSpriteIndex += 1;
+                  } else {
+                    game.omarOrientation = "left";
+                    game.omarSpriteIndex = 0;
+                  }
                 }
               }
             }
             break;
           case "top":
-            if(!game.selectOption && game.omarY > 0)
+            if(!game.selectOption)
             {
               if(
-                game.omarY <= game.eloirY ||
-                game.omarY >= game.eloirY + game.tileSize * 0.6 ||
-                game.omarX >= game.eloirX + game.tileSize * 0.6 ||
-                game.omarX + game.tileSize * 0.6 <= game.eloirX
+                // Sector 1
+                game.omarX > game.tileSize * 0.8 && game.omarX + game.tileSize < game.tileSize * 6.5 && game.omarY > -5 && game.omarY < game.screenSize.height - game.tileSize * 4
+                || // Sector 2
+                game.omarX + game.tileSize > game.tileSize * 6.3 && game.omarX < game.tileSize * 7.3 && game.omarY > -5 && game.omarY < game.screenSize.height
+                || // Sector 3
+                game.omarX > game.tileSize * 6.8 && game.omarX < game.tileSize * 11.1 && game.omarY > -5 && game.omarY < game.tileSize * 1.2
+                || // Sector 4
+                game.omarX > game.tileSize * 10.8 && game.omarX < game.tileSize * 12.2 && game.omarY > -5 && game.omarY < game.screenSize.height - game.tileSize * 2.6
+                || // Sector 5
+                game.omarX > game.tileSize * 9.8 && game.omarX < game.tileSize * 12.1 && game.omarY > game.tileSize * 3.3 && game.omarY < game.screenSize.height - game.tileSize * 2.6
+                // Sector 6
               ) {
-                game.omarY -= 3;
-                if(game.omarOrientation == "top") {
-                  if(game.omarSpriteIndex == 7) game.omarSpriteIndex = 0;
-                  game.omarSpriteIndex += 1;
-                } else {
-                  game.omarOrientation = "top";
-                  game.omarSpriteIndex = 0;
+                if(
+                  game.omarY <= game.eloirY ||
+                  game.omarY >= game.eloirY + game.tileSize * 0.6 ||
+                  game.omarX >= game.eloirX + game.tileSize * 0.6 ||
+                  game.omarX + game.tileSize * 0.6 <= game.eloirX
+                ) {
+                  game.omarY -= 3;
+                  if(game.omarOrientation == "top") {
+                    if(game.omarSpriteIndex == 7) game.omarSpriteIndex = 0;
+                    game.omarSpriteIndex += 1;
+                  } else {
+                    game.omarOrientation = "top";
+                    game.omarSpriteIndex = 0;
+                  }
                 }
               }
             }
@@ -108,21 +151,35 @@ class ControllerButton {
             }
             break;
           case "bottom":
-            if(!game.selectOption && game.omarY + game.tileSize < game.screenSize.height)
+            if(!game.selectOption)
             {
               if(
-                game.omarY >= game.eloirY ||
-                game.omarY + game.tileSize * 0.6 <= game.eloirY ||
-                game.omarX + game.tileSize * 0.6 <= game.eloirX ||
-                game.omarX >= game.eloirX + game.tileSize * 0.6
+                // Sector 1
+                game.omarX > game.tileSize * 0.8 && game.omarX + game.tileSize < game.tileSize * 6.5 && game.omarY > -8 && game.omarY < game.screenSize.height - game.tileSize * 4.5
+                || // Sector 2
+                game.omarX + game.tileSize > game.tileSize * 6.3 && game.omarX < game.tileSize * 7.3 && game.omarY > -8 && game.omarY + game.tileSize < game.screenSize.height - game.tileSize * 0.6
+                || // Sector 3
+                game.omarX > game.tileSize * 6.8 && game.omarX < game.tileSize * 11.1 && game.omarY > -8 && game.omarY + game.tileSize < game.tileSize * 0.8
+                || // Sector 4
+                game.omarX > game.tileSize * 11.3 && game.omarX < game.tileSize * 12.2 && game.omarY > -8 && game.omarY < game.screenSize.height - game.tileSize * 2.8
+                || // Sector 5
+                game.omarX > game.tileSize * 9.8 && game.omarX < game.tileSize * 12.3 && game.omarY > game.tileSize * 3.1 && game.omarY < game.screenSize.height - game.tileSize * 2.8
+                // Sector 6
               ) {
-                game.omarY += 3;
-                if(game.omarOrientation == "bottom") {
-                  if(game.omarSpriteIndex == 7) game.omarSpriteIndex = 0;
-                  game.omarSpriteIndex += 1;
-                } else {
-                  game.omarOrientation = "bottom";
-                  game.omarSpriteIndex = 0;
+                if(
+                  game.omarY >= game.eloirY ||
+                  game.omarY + game.tileSize * 0.6 <= game.eloirY ||
+                  game.omarX + game.tileSize * 0.6 <= game.eloirX ||
+                  game.omarX >= game.eloirX + game.tileSize * 0.6
+                ) {
+                  game.omarY += 3;
+                  if(game.omarOrientation == "bottom") {
+                    if(game.omarSpriteIndex == 7) game.omarSpriteIndex = 0;
+                    game.omarSpriteIndex += 1;
+                  } else {
+                    game.omarOrientation = "bottom";
+                    game.omarSpriteIndex = 0;
+                  }
                 }
               }
             }

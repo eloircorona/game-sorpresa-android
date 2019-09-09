@@ -70,6 +70,14 @@ void main() async {
     'eloir_walking_left/tile005.png',
     'eloir_walking_left/tile006.png',
     'eloir_walking_left/tile007.png',
+    'eloir_walking_bottom/tile000.png',
+    'eloir_walking_bottom/tile001.png',
+    'eloir_walking_bottom/tile002.png',
+    'eloir_walking_bottom/tile003.png',
+    'eloir_walking_bottom/tile004.png',
+    'eloir_walking_bottom/tile005.png',
+    'eloir_walking_bottom/tile006.png',
+    'eloir_walking_bottom/tile007.png',
   ]);
 
   BoxGame game = BoxGame();

@@ -10,12 +10,12 @@ class Eloir {
   Paint eloirPaint;
   Sprite eloirSprite;
 
-  Eloir(this.game, double x, double y, int spriteIndex, bool isWalking) {
-    eloirRect = Rect.fromLTWH(x, y, game.tileSize, game.tileSize);
+  Eloir(this.game, double x, double y, int spriteIndex, bool isWalking, String orientation) {
+    eloirRect = Rect.fromLTWH(x, y, game.tileSize * 1.15, game.tileSize * 1.15);
     eloirPaint = Paint();
     eloirPaint.color = Color(0xff6ab04c);
 
-    eloirSprite = Sprite("eloir_walking_left/tile00" + spriteIndex.toString() + ".png");
+    eloirSprite = Sprite("eloir_walking_" + orientation + "/tile00" + spriteIndex.toString() + ".png");
     
   }
 

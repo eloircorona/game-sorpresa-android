@@ -11,7 +11,7 @@ class Omar {
   Sprite omarSprite;
 
   Omar(this.game, double x, double y, int spriteIndex, String orientation, bool isWalking) {
-    omarRect = Rect.fromLTWH(x, y, game.tileSize, game.tileSize);
+    omarRect = Rect.fromLTWH(x, y, game.tileSize * 1.15, game.tileSize * 1.15);
     omarPaint = Paint();
     omarPaint.color = Color(0xff6ab04c);
 

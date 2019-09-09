@@ -49,6 +49,7 @@ class BoxGame extends Game {
   double eloirY;
   int eloirSpriteIndex;
   bool eloirIsWalking;
+  String eloirOrientation;
 
   //Message
   Message message;
@@ -97,11 +98,12 @@ class BoxGame extends Game {
   }
 
   void loadEloir() {
-    eloirX = screenSize.width + tileSize * 2;
-    eloirY = screenSize.height / 2 - tileSize;
+    eloirX = screenSize.width - tileSize * 2.1;
+    eloirY = -100;
     eloirSpriteIndex = 0;
     eloirIsWalking = false;
-    eloir = Eloir(this, eloirX, eloirY, eloirSpriteIndex, eloirIsWalking);
+    eloirOrientation = "bottom";
+    eloir = Eloir(this, eloirX, eloirY, eloirSpriteIndex, eloirIsWalking, eloirOrientation);
   }
 
   void loadMessage() {
@@ -118,7 +120,7 @@ class BoxGame extends Game {
   void loadHeart() {
     showHeart = false;
 
-    heart = Heart(this, (screenSize.width / 2) + (tileSize / 4), (screenSize.height / 2) - (tileSize * 1.3)); 
+    heart = Heart(this, eloirX + (tileSize / 4), eloirY - (tileSize * 1.3)); 
   }
 
   void initialize() async {
@@ -153,15 +155,30 @@ class BoxGame extends Game {
     if(timeCount > 200) eloirIsWalking = true;
     if(eloirIsWalking && !optionNo)
     {
-      if(eloirX > screenSize.width / 2)
-      {
-        eloirX -= 3;
+      // if(eloirX > screenSize.width / 2)
+      // {
+      //   eloirX -= 3;
+      //   if(eloirSpriteIndex == 7) eloirSpriteIndex = 0;
+      //   eloirSpriteIndex++;
+      // } else {
+      //   eloirSpriteIndex = 2;
+      // }
+      if(eloirY < screenSize.height * 0.53 - tileSize * 0.2) 
+      { 
+        eloirY += 3;
         if(eloirSpriteIndex == 7) eloirSpriteIndex = 0;
-        eloirSpriteIndex++;
+          eloirSpriteIndex++;
       } else {
-        eloirSpriteIndex = 2;
+        eloirOrientation = "left";
+        if(eloirX > screenSize.width * 0.6)
+        {
+          eloirX -= 3;
+          if(eloirSpriteIndex == 7) eloirSpriteIndex = 0;
+          eloirSpriteIndex++;
+        } else {
+          eloirSpriteIndex = 2;
+        }
       }
-      
     }
     if(eloirIsWalking && optionNo)
     {
@@ -172,9 +189,9 @@ class BoxGame extends Game {
         eloirSpriteIndex++;
       }
     }
-    eloir = Eloir(this, eloirX, eloirY, eloirSpriteIndex, eloirIsWalking);
+    eloir = Eloir(this, eloirX, eloirY, eloirSpriteIndex, eloirIsWalking, eloirOrientation);
     if(showMessage) message = Message(this, 10, 250, countMessage);
-    if(showHeart && optionYes) heart = Heart(this, (screenSize.width / 2) + (tileSize / 4), (screenSize.height / 2) - (tileSize * 1.3));
+    if(showHeart && optionYes) heart = Heart(this, eloirX + (tileSize * 0.4), eloirY - (tileSize * 0.2)); 
     buttons.forEach((ControllerButton button) => button.update(t));
   }
 
