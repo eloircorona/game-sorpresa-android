@@ -167,7 +167,7 @@ class BoxGame extends Game {
       { 
         eloirY += 3;
         if(eloirSpriteIndex == 7) eloirSpriteIndex = 0;
-          eloirSpriteIndex++;
+        eloirSpriteIndex++;
       } else {
         eloirOrientation = "left";
         if(eloirX > screenSize.width * 0.6)
@@ -177,16 +177,25 @@ class BoxGame extends Game {
           eloirSpriteIndex++;
         } else {
           eloirSpriteIndex = 2;
+          eloirIsWalking = false;
         }
       }
     }
     if(eloirIsWalking && optionNo)
     {
-      if(eloirX > -100)
+      eloirOrientation = "right";
+      if(eloirX < screenSize.width - tileSize * 2)
       {
-        eloirX -= 3;
+        eloirX += 3;
         if(eloirSpriteIndex == 7) eloirSpriteIndex = 0;
         eloirSpriteIndex++;
+      } else {
+        eloirOrientation = "top";
+        if(eloirY > -100) {
+          eloirY -= 3;
+          if(eloirSpriteIndex == 7) eloirSpriteIndex = 0;
+          eloirSpriteIndex++;
+        }
       }
     }
     eloir = Eloir(this, eloirX, eloirY, eloirSpriteIndex, eloirIsWalking, eloirOrientation);

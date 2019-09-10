@@ -93,3 +93,19 @@ flutter:
    - assets/images/eloir_walking_bottom/tile005.png
    - assets/images/eloir_walking_bottom/tile006.png
    - assets/images/eloir_walking_bottom/tile007.png
+   - assets/images/eloir_walking_right/tile000.png
+   - assets/images/eloir_walking_right/tile001.png
+   - assets/images/eloir_walking_right/tile002.png
+   - assets/images/eloir_walking_right/tile003.png
+   - assets/images/eloir_walking_right/tile004.png
+   - assets/images/eloir_walking_right/tile005.png
+   - assets/images/eloir_walking_right/tile006.png
+   - assets/images/eloir_walking_right/tile007.png
+   - assets/images/eloir_walking_top/tile000.png
+   - assets/images/eloir_walking_top/tile001.png
+   - assets/images/eloir_walking_top/tile002.png
+   - assets/images/eloir_walking_top/tile003.png
+   - assets/images/eloir_walking_top/tile004.png
+   - assets/images/eloir_walking_top/tile005.png
+   - assets/images/eloir_walking_top/tile006.png
+   - assets/images/eloir_walking_top/tile007.png

@@ -1,0 +1,20 @@
+{
+    "logs": [
+        {
+            "outputFile": "/home/eloircorona/Development/Projects/Flutter/sorpresa/build/app/intermediates/incremental/mergeReleaseResources/merged.dir/values/values.xml",
+            "map": [
+                {
+                    "source": "/home/eloircorona/Development/Projects/Flutter/sorpresa/android/app/src/main/res/values/styles.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "6",
+                        "endColumns": "12",
+                        "endOffsets": "347"
+                    }
+                }
+            ]
+        }
+    ]
+}

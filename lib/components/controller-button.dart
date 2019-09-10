@@ -53,8 +53,9 @@ class ControllerButton {
                 || // Sector 4
                 game.omarX > game.tileSize * 10.8 && game.omarX < game.tileSize * 12 && game.omarY > -8 && game.omarY < game.screenSize.height - game.tileSize * 2.6
                 || // Sector 5
-                game.omarX > game.tileSize * 9.8 && game.omarX < game.tileSize * 12.3 && game.omarY > game.tileSize * 3.1 && game.omarY < game.screenSize.height - game.tileSize * 2.6
-                // Sector 6
+                game.omarX > game.tileSize * 9 && game.omarX < game.tileSize * 11.4 && game.omarY > game.tileSize * 3.1 && game.omarY < game.screenSize.height - game.tileSize * 2.6
+                || // Sector 6
+                game.omarX > game.tileSize * 6.8 && game.omarX < game.tileSize * 9.1 && game.omarY > game.tileSize * 3.1 && game.omarY < game.screenSize.height - game.tileSize
               ) {
                 if(
                   game.omarX >= game.eloirX ||
@@ -81,16 +82,17 @@ class ControllerButton {
             {
               if(
                 // Sector 1
-                game.omarX > game.tileSize && game.omarX + game.tileSize < game.tileSize * 6.5 && game.omarY > -8 && game.omarY < game.screenSize.height - game.tileSize * 4
+                game.omarX > game.tileSize && game.omarX + game.tileSize < game.tileSize * 6.8 && game.omarY > -8 && game.omarY < game.screenSize.height - game.tileSize * 4
                 || // Sector 2
                 game.omarX + game.tileSize > game.tileSize * 6.8 && game.omarX < game.tileSize * 7.3 && game.omarY > -8 && game.omarY < game.screenSize.height
                 || // Sector 3
                 game.omarX > game.tileSize * 7.1 && game.omarX < game.tileSize * 11.5 && game.omarY > -8 && game.omarY + game.tileSize < game.tileSize * 0.9
                 || // Sector 4
-                game.omarX > game.tileSize * 11.5 && game.omarX < game.tileSize * 12.2 && game.omarY > -8 && game.omarY < game.screenSize.height - game.tileSize * 2.6
+                game.omarX > game.tileSize * 11.4 && game.omarX < game.tileSize * 12.2 && game.omarY > -8 && game.omarY < game.screenSize.height - game.tileSize * 2.6
                 || // Sector 5
-                game.omarX > game.tileSize * 10 && game.omarX < game.tileSize * 12.3 && game.omarY > game.tileSize * 3.1 && game.omarY < game.screenSize.height - game.tileSize * 2.6
-                // Sector 6
+                game.omarX > game.tileSize * 9 && game.omarX < game.tileSize * 11.4 && game.omarY > game.tileSize * 3.1 && game.omarY < game.screenSize.height - game.tileSize * 2.6
+                || // Sector 6
+                game.omarX > game.tileSize * 7.1 && game.omarX < game.tileSize * 9.4 && game.omarY > game.tileSize * 3.1 && game.omarY < game.screenSize.height - game.tileSize
               ) {
                 if(
                   game.omarX <= game.eloirX ||
@@ -121,10 +123,11 @@ class ControllerButton {
                 || // Sector 3
                 game.omarX > game.tileSize * 6.8 && game.omarX < game.tileSize * 11.1 && game.omarY > -5 && game.omarY < game.tileSize * 1.2
                 || // Sector 4
-                game.omarX > game.tileSize * 10.8 && game.omarX < game.tileSize * 12.2 && game.omarY > -5 && game.omarY < game.screenSize.height - game.tileSize * 2.6
+                game.omarX > game.tileSize * 10.8 && game.omarX < game.tileSize * 12.3 && game.omarY > -5 && game.omarY < game.screenSize.height - game.tileSize * 2.6
                 || // Sector 5
-                game.omarX > game.tileSize * 9.8 && game.omarX < game.tileSize * 12.1 && game.omarY > game.tileSize * 3.3 && game.omarY < game.screenSize.height - game.tileSize * 2.6
-                // Sector 6
+                game.omarX > game.tileSize * 9 && game.omarX < game.tileSize * 10.8 && game.omarY > game.tileSize * 3.3 && game.omarY < game.screenSize.height - game.tileSize * 2.6
+                || // Sector 6
+                game.omarX > game.tileSize * 6.8 && game.omarX < game.tileSize * 9.2 && game.omarY > game.tileSize * 3.3 && game.omarY < game.screenSize.height - game.tileSize * 0.8
               ) {
                 if(
                   game.omarY <= game.eloirY ||
@@ -161,10 +164,11 @@ class ControllerButton {
                 || // Sector 3
                 game.omarX > game.tileSize * 6.8 && game.omarX < game.tileSize * 11.1 && game.omarY > -8 && game.omarY + game.tileSize < game.tileSize * 0.8
                 || // Sector 4
-                game.omarX > game.tileSize * 11.3 && game.omarX < game.tileSize * 12.2 && game.omarY > -8 && game.omarY < game.screenSize.height - game.tileSize * 2.8
+                game.omarX > game.tileSize * 11.3 && game.omarX < game.tileSize * 12.3 && game.omarY > -8 && game.omarY < game.screenSize.height - game.tileSize * 2.8
                 || // Sector 5
-                game.omarX > game.tileSize * 9.8 && game.omarX < game.tileSize * 12.3 && game.omarY > game.tileSize * 3.1 && game.omarY < game.screenSize.height - game.tileSize * 2.8
-                // Sector 6
+                game.omarX > game.tileSize * 9 && game.omarX < game.tileSize * 10.8 && game.omarY > game.tileSize * 3.1 && game.omarY < game.screenSize.height - game.tileSize * 2.8
+                || // Sector 6
+                game.omarX > game.tileSize * 6.8 && game.omarX < game.tileSize * 9.2 && game.omarY > game.tileSize * 3.3 && game.omarY < game.screenSize.height - game.tileSize * 1.6
               ) {
                 if(
                   game.omarY >= game.eloirY ||
@@ -222,6 +226,7 @@ class ControllerButton {
                     case 5:
                       game.showMessage = false;
                       game.optionNo = true;
+                      game.eloirIsWalking = true;
                       game.selectOption = false;
                       break;
                   }

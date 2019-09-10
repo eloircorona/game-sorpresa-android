@@ -1,0 +1,4 @@
+#Tue Sep 10 00:00:28 MDT 2019
+base.0=/home/eloircorona/Development/Projects/Flutter/sorpresa/build/app/intermediates/transforms/dexMerger/release/0
+path.0=classes.dex
+renamed.0=classes.dex

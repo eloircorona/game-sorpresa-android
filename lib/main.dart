@@ -78,6 +78,22 @@ void main() async {
     'eloir_walking_bottom/tile005.png',
     'eloir_walking_bottom/tile006.png',
     'eloir_walking_bottom/tile007.png',
+    'eloir_walking_right/tile000.png',
+    'eloir_walking_right/tile001.png',
+    'eloir_walking_right/tile002.png',
+    'eloir_walking_right/tile003.png',
+    'eloir_walking_right/tile004.png',
+    'eloir_walking_right/tile005.png',
+    'eloir_walking_right/tile006.png',
+    'eloir_walking_right/tile007.png',
+    'eloir_walking_top/tile000.png',
+    'eloir_walking_top/tile001.png',
+    'eloir_walking_top/tile002.png',
+    'eloir_walking_top/tile003.png',
+    'eloir_walking_top/tile004.png',
+    'eloir_walking_top/tile005.png',
+    'eloir_walking_top/tile006.png',
+    'eloir_walking_top/tile007.png',
   ]);
 
   BoxGame game = BoxGame();
